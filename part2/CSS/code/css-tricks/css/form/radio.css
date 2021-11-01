@@ -1,0 +1,25 @@
+/* 颜色变量 */
+.new-radio {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #5cad5a;
+  position: relative;
+  top: -1px;
+}
+.new-radio > input[type=radio] {
+  opacity: 0;
+}
+.new-radio > input[type=radio]:checked + i:after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5cad5a;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}

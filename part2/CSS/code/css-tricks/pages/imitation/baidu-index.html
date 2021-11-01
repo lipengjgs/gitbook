@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="theme-color" content="#2932e1"/>
+		<!-- <link rel="dns-prefetch" href="//sp2.baidu.com"> -->
+		<title>百度一下，你就知道</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			html, body {
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 模仿百度新输入框 -->
+		<main class="style-05">
+		  <style>
+			  .style-05 {
+				  padding: 30px;
+				  height: 100%;
+			  }
+			  .style-05 .outer {
+				  font-size: 0;
+				  width: 654px;
+				  position: relative;
+			  }
+				.style-05 span {
+					display: inline-block;
+				}
+				.style-05 span.input-bg {
+					position: relative;
+					width: 546px;
+					vertical-align: top;
+				}
+				.style-05 span.input-bg input {
+					width: 480px;
+					height: 16px;
+					padding: 12px 16px;
+					padding-right: 48px;
+					font-size: 16px;
+					margin: 0;
+					outline: none;
+					box-shadow: none;
+					border-radius: 10px 0 0 10px;
+					border: 2px solid #c4c7ce;
+					background: #fff;
+					overflow: hidden;
+					font-family: Arial, Helvetica,"PingFang SC","microsoft yahei" sans-serif;
+					-webkit-appearance: none;
+					vertical-align: top;
+					color: #222;
+				}
+				.style-05 span.input-bg input:hover {
+					border-color: #9195a3;
+					opacity: 0.8;
+				}
+				.style-05 span.input-bg input:focus {
+					border-color: #2932e1;
+					opacity: 1;
+				}
+			
+				.style-05 span.btn-bg {
+					vertical-align: top;
+					width: 108px;
+					height: 44px;
+					position: relative;
+					z-index: 2;
+				}
+				.style-05 span.btn-bg a {
+					vertical-align: top;
+					display: inline-block;
+					text-align: center;
+					width: 100%;
+					height: 100%;
+					line-height: 45px;
+					text-decoration: none;
+					border-radius: 0 10px 10px 0;
+					font-size: 17px;
+					color: #fff;
+					background: #4e6ef2;
+					border: none;
+					cursor: pointer;
+				}
+				.style-05 span.btn-bg a:hover {
+					background-color: #4662d9;
+				}
+				.style-05 .icon-photo {
+					position: absolute;
+					background: #fff url('https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/searchbox/nicon-10750f3f7d.png') no-repeat;
+					width: 24px;
+					height: 20px;
+					background-position: 0 -51px;
+					top: 50%;
+					right: 16px;
+					margin-top: -9px;
+					z-index: 1;
+					cursor: pointer;
+				}
+				.style-05 .icon-photo:hover {
+					background-position: 0 -75px;
+				}
+				.style-05 .logo {
+					width: 654px;
+					text-align: center;
+				}
+				.style-05 .logo img{
+					width: 270px;
+					height: 129px;
+					margin-bottom: 10px;
+				}
+				.style-05 .searchpanal {
+					position: absolute;
+					height: auto;
+					width: 544px;
+					top: 35px;
+					border-radius: 0 0 10px 10px;
+					border: 2px solid #4E6EF2!important;
+					border-top: 0!important;
+					box-shadow: none;
+					font-family: Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+					z-index: 1;
+					background: #fff;
+					display: none;
+				}
+				.style-05 .searchpanal ul {
+					margin: 7px 14px 0;
+					padding: 8px 0 7px;
+					background: 0 0;
+					border-top: 2px solid #f5f5f6;
+					list-style: none;
+				}
+				.style-05 .searchpanal ul li {
+					padding: 0;
+					    color: #626675;
+					    line-height: 28px;
+					    background: 0 0;
+						list-style: none;
+						font-size: 14px;
+						cursor: pointer;
+				}
+				.style-05 .searchpanal ul li:hover {
+					color: #315EFB;
+				}
+		  </style>
+		  <div class="logo">
+			  <img src="https://www.baidu.com/img/bd_logo1.png" >
+		  </div>
+		  <div class="outer">
+				<span class="input-bg">
+					<span class="icon-photo"></span>
+					<input onfocus="showPanal(this)" oninput="showPanal(this)" onblur="showPanal(false)" type="text" name="" id="" value="" />
+				</span>
+				<span class="btn-bg">
+					<a>百度一下</a>
+				</span>
+				<div class="searchpanal">
+					<ul>
+						<li>Adidas官网</li>
+						<li>Add</li>
+						<li>Abs</li>
+					</ul>
+				</div>
+		  </div>
+		  <script type="text/javascript">
+		  	function showPanal(input) {
+		  		if (input && input.value) {
+		  			document.querySelector('.searchpanal').style.display = 'block';
+		  		} else {
+		  			document.querySelector('.searchpanal').style.display = 'none';
+		  		}
+		  		// show ? document.querySelector('.searchpanal').style.display = 'block' : document.querySelector('.searchpanal').style.display = 'none';
+		  	}
+		  </script>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,261 @@
+/* 选择器 */
+
+/* 通配符选择器 */
+* {
+
+}
+/* 标记选择器 */
+html, body {
+
+}
+/* 类选择符 */
+.active {
+
+}
+.a.b {
+
+}
+a.active {
+
+}
+/* id选择器 */
+#content {
+
+}
+/* 包含选择器 */
+.content img {
+
+}
+.content > img {
+
+}
+/* 相邻选择符 */
+.content + img {
+
+}
+/* 兄弟选择器 */
+.content ~ img {
+
+}
+/* 组合选择器 */
+.right, .left {
+
+}
+/* 伪类选择器 */
+a:link {
+
+}
+a:visited {
+
+}
+a:hover {
+
+}
+a:active {
+
+}
+input:focus {
+
+}
+span:lang {
+
+}
+p:first-child {
+
+}
+p:last-child {
+
+}
+p:only-child {
+
+}
+p:nth-child(2) {
+
+}
+p:nth-last-child(2) {
+
+}
+p:not(:first-child) {
+
+}
+input:checked {
+
+}
+input:enabled {
+
+}
+input:disabled {
+
+}
+.content:after {
+
+}
+.content:before {
+
+}
+.content:first-of-type {
+
+}
+.content:last-of-type {
+
+}
+.content:only-of-type {
+
+}
+.content:nth-of-type(2) {
+
+}
+.content:nth-last-of-type(3) {
+
+}
+.content:empty {
+
+}
+#md:target {
+
+}
+input::placeholder {
+
+}
+/* 属性选择符 */
+img[alt] {
+
+}
+input[type="text"] {
+
+}
+div[class~="a"] {
+
+}
+div[class^="a"] {
+
+}
+div[class$="a"] {
+
+}
+div[class*="a"] {
+
+}
+div[class|="a"] {
+
+}
+/* 布局 */
+.section {
+  display: flex;
+  visibility: hidden;
+  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+.section0 {
+  display: grid;
+}
+.section1 {
+  display: table;
+}
+.cell {
+  display: table-cell;
+}
+
+
+.pull-left {
+  float: left;
+  clear: both;
+}
+.pull-right {
+  float: right;
+}
+
+
+/* 字体 */
+.font {
+  font-style: normal;
+  font-variant: small-caps;
+  font-stretch: extra-condensed;
+  font-weight: 700;
+  font-size: 24px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size-adjust: initial;
+  white-space: nowrap;
+  text-align: center;
+  text-align-last: justify;
+  text-transform: lowercase;
+  word-break: break-all;
+  word-wrap: none;
+  overflow-wrap: break-word;
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  text-indent: 2em;
+  text-overflow: ellipsis; 
+  vertical-align: middle;
+  line-height: 30px;
+  text-size-adjust: auto;
+  text-decoration: underline;
+  text-shadow: 1px 1px 2px;
+  direction: rtl;
+  writing-mode: vertical-rl;
+}
+
+/* 位置 */
+.fix {
+  position: fixed;
+  z-index: 100;
+}
+.rel {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.abs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Size */
+.div {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 1000px;
+  max-width: 2000px;
+  height: 100%;
+  min-height: 100px;
+  max-width: 300px;
+}
+.nav {
+  margin: 1px 2px 3px 4px;
+  padding: 1px 2px 3px 4px;
+}
+.middle {
+  margin: 0 auto;
+}
+
+/* 颜色 */
+.op {
+  opacity: 0;
+}
+
+/* 边框 */
+.border {
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  border-image: url('');
+  box-shadow: #ddd;
+
+}
+
+/* transition 和 动画 */
+.transform {
+  transform: translate(-50%, -50%);
+  transform: rotate3d(20,30, 12);
+}
+.transition {
+  transition: all 0.5s linear;
+}
+
+/*  */
+

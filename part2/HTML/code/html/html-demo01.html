@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML-Demo01</title>
+  <link rel="stylesheet" href="">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .txt-center {
+      text-align: center;
+    }
+    .pull-left {
+      float: left;
+    }
+    .module {
+      box-sizing: border-box;
+      padding: 20px 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 注释 -->
+  <header class="module">
+    <h3 class="txt-center">Header</h3>
+    <h1>Header01</h1>
+    <h2>Header02</h2>
+    <h3>Header03</h3>
+    <h4>Header04</h4>
+    <h5>Header05</h5>
+    <h6>Header06</h6>
+  </header>
+
+  <nav class="module">
+    
+  </nav>
+
+  <section class="module" name="list" style="overflow: hidden;">
+    <h3 class="txt-center">List</h3>
+    <menu>
+      menu
+    </menu>
+    <aside class="pull-left" style="margin-right: 40px;">
+      <ul type="square">
+        <li>无序列表项01</li>
+        <li>无序列表项02</li>
+        <li>无序列表项03</li>
+        <li>无序列表项04</li>
+        <li>无序列表项05</li>
+      </ul>
+      <ol type="i">
+        <li>有序列表项01</li>
+        <li>有序列表项02</li>
+        <li>有序列表项03</li>
+        <li>有序列表项04</li>
+        <li>有序列表项05</li>
+      </ol>
+      <dl>
+        <dt>自定义列表标题01</dt>
+        <dd>自定义列表项01</dd>
+    
+        <dt>自定义列表标题02</dt>
+        <dd>自定义列表项02</dd>
+      </dl>
+    </aside>
+    <article class="pull-left">
+      <p>
+        先<b>布局</b>，后<i>挂模块</i>
+        <s>删除</s>， <mark>mark</mark>
+        <span>span</span>
+        <em>em</em>
+        <sup>sup</sup>
+        <sub>sub</sub>
+        <br>
+        <hr>
+        <img src="https://www.baidu.com/img/dong_54209c0ff3da32eecc31f340c08a18f6.gif" width="100" alt="百度的图">
+      </p>
+      <pre>
+        这里是
+          固定的格式
+      </pre>
+    </article>
+  </section>
+  <section class="module" name="table">
+    <h3 class="txt-center">Table</h3>
+    <table border="1" cellspacing="0" cellpadding="0">
+      <caption>说明</caption>
+      <thead>
+        <tr>
+          <th>表头01</th>
+          <th>表头02</th>
+          <th>表头03</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section class="module" name="form">
+    <h3 class="txt-center">Form</h3>
+    <form action="https://www.baidu.com" method="GET" enctype="application/x-www-form-urlencoded">
+      <input type="text">
+      <input type="password">
+      <input type="date">
+      <input type="number">
+      <input type="button" value="adsfa">
+      <button>button1</button>
+      <input type="email">
+      <input type="checkbox">
+      <input type="radio" name="ra">
+      <input type="radio" name="ra">
+      <textarea name="" id="" cols="30" rows="10"></textarea>
+      <select name="" id="">
+        <option value="1">选项1</option>
+        <option value="2">选项2</option>
+        <option value="3">选项3</option>
+        <option value="4">选项4</option>
+      </select>
+    </form>
+  </section>
+  <section class="module" name="others">
+    <h3 class="txt-center">Others</h3>
+    <a href="1.txt">文件</a>
+    <a href="https://www.baidu.com" target="_blank">百度</a>
+    <a href="mailto://715144254@qq.com">邮箱</a>
+    <a href="javascript:alert(1)">脚本</a>
+    <div>
+
+    </div>
+    <iframe src="https://www.baidu.com" frameborder="0"></iframe>
+  </section>
+  <section class="module" name="html5">
+    <video src=""></video>
+    <audio src=""></audio>
+    <svg></svg>
+    <canvas></canvas>
+  </section>
+
+  <footer class="module">
+
+  </footer>
+
+  <script>
+    window.addEventListener('load', function () {
+      console.log('************load(仅用于检测一个完全加载的页面)****************')
+    })
+    //  window.onload = function(){
+    //    console.log('************load(仅用于检测一个完全加载的页面)****************')
+    //  };
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('********DOMContentLoaded(当初始的HTML文档被完全加载和解析完成后，DOMContentLoaded事件被触发，DOMContentLoaded事件必须等待其所属script之前的样式表加载解析完成才会触发)********');
+    })
+    document.addEventListener('readystatechange', function () {
+      console.log(`*********readyState: ${document.readyState}***********`)
+    })
+  </script>
+</body>
+</html>

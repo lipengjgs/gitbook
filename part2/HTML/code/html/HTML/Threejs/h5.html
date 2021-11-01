@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>H5</title>
+  <style>
+    .frame {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      height: 500px;
+      position: relative;
+    }
+    .tip {
+      margin: 10px;
+      padding: 5px 10px;
+      background: #ddd;
+    }
+    header {
+      text-align: center;
+      border: 1px solid salmon;
+    }
+    nav {
+      text-align: center;
+      border: 1px solid slateblue;
+    }
+    main {
+      border: 1px solid yellowgreen;
+    }
+    footer {
+      text-align: center;
+      border: 1px solid seagreen;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+    form div {
+      padding: 10px 20px;
+    }
+    form label {
+      display: inline-block;
+      vertical-align: middle;
+      width: 130px;
+    }
+    .talking-frame {
+      height: 300px;
+      background: #eee;
+    }
+    .drag-item {
+      width: 100px;
+      height: 100px;
+      background:  red;
+      position: absolute;
+    }
+    .drop-item {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      width: 800px;
+      height: 300px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">权威链接</a>
+  <h2>一、语义化标签</h2>
+  <div class="tip">用最恰当的HTML元素标记内容，有利于SEO，结构清晰，提升可访问性</div>
+  <div class="frame">
+    <header>这里是header</header>
+    <nav>这里是nav</nav>
+    <main>
+      这里是main
+      <ul>
+        <li>
+          <strong>strong标记</strong>
+        </li>
+        <li>
+          <mark>mark标记</mark>
+        </li>
+        <li>
+          <pre>
+               这里是pre,预格式化文本，
+            保留文本固有的换行和空格
+          </pre>
+        </li>
+      </ul> 
+      <em>em标记内容着重点，大量用于提升段落文本语义</em>
+      <article>
+        这里是article
+        <article>里面还可以嵌套article</article>
+      </article>
+      <aside>这里是aside</aside>
+    </main>
+    <footer>这里是footer</footer>
+  </div>
+
+  <h2>二、Video、Audio</h2>
+  <div class="frame">
+    <video controls preload="auto" id="video" src="res/cartoon.wmv"></video>
+    <audio controls preload="auto" id="audio" src=""></audio>
+  </div>
+
+  <h2>三、表单新特性</h2>
+  <div class="frame">
+    <form action="">
+      <div>
+        <label for="range">Range</label>
+        <input id="range" type="range">
+      </div>
+      <div>
+        <label for="number">Number</label>
+        <input id="number" type="number">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email">
+      </div>
+      <div>
+        <label for="url">Url</label>
+        <input id="url" type="url">
+      </div>
+      <div>
+        <label for="tel">Tel</label>
+        <input id="tel" type="tel">
+      </div>
+      <div>
+        <label for="search">Search</label>
+        <input id="search" type="search">
+      </div>
+      <div>
+        <label for="color">Color</label>
+        <input id="color" type="color">
+      </div>
+      <div>
+        <label for="date">Date</label>
+        <input id="date" type="date">
+      </div>
+      <div>
+        <label for="week">Week</label>
+        <input id="week" type="week">
+      </div>
+      <div>
+        <label for="month">Month</label>
+        <input id="month" type="month">
+      </div>
+    </form>
+  </div>
+
+  <h2>四、存储</h2>
+  <div class="frame">
+    <ul>
+      <li>Cookie</li>
+      <li>Flash</li>
+      <li>WebStorage</li>
+      <li>IndexedDB</li>
+    </ul>
+  </div>
+
+  <h2>五、定位</h2>
+  <div class="frame" style="height: 100px;">
+    <button onclick="locationNew.getLocation()">获取定位</button>
+  </div>
+
+  <h2>六、Canvas</h2>
+  <div class="frame">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <h2>七、SVG</h2>
+  <div class="frame">
+
+  </div>
+
+  <h2>八、拖放API</h2>
+  <div class="frame">
+    <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API">参考这里</a>
+    <div class="drag-item">
+
+    </div>
+
+    <div class="drop-item">
+
+    </div>
+  </div>
+
+  <h2>九、WebSocket</h2>
+  <div class="frame">
+    <a href="javascript:createSocket()">创建socket</a>
+
+    <div class="talking-frame">
+
+    </div>
+
+    <div>
+      <input id='msg' type="text">
+      <button onclick="sendMsg()">发送</button>
+    </div>
+  </div>
+
+  <h2>十、WebWorker</h2>
+  <div class="frame">
+    <a href="javascript:createWorker()">创建worker</a>
+  </div>
+
+  <h2>十一、新事件</h2>
+  <div class="frame">
+
+  </div>
+
+<img id='img' src="res/canvas.png" alt="">
+
+  <script>
+    // 音视频
+    class HandleVideoAndAudio {
+      constructor () {
+
+      }
+      playVideo() {
+        
+      }
+      playAudio() {
+
+      }
+    }
+    // 定位
+    class Location {
+      constructor () {
+
+      }
+      getLocation () {
+        console.log('不安全的协议下不让调用')
+        console.log(window.navigator)
+        window.navigator.geolocation.getCurrentPosition(
+          function(pos) {
+            console.log(pos.coords.latitude)
+            console.log(pos.coords.longitude)
+            console.log(pos.coords.altitude)
+            console.log(pos.coords.speed)
+          },
+          function(err) {
+            console.log(err)
+          }
+        )
+      }
+      watch() {
+        window.navigator.geolocation.watchPosition()
+      }
+      clear() {
+        window.navigator.geolocation.clearWatch()
+      }
+    }
+    
+    // 存储
+    class Store {
+      constructor() {
+
+      }
+      saveStore () {
+        window.localStorage.setItem('store','这里测试存储')
+      }
+      getStore () {
+        window.localStorage.getItem('store')
+      }
+      removeStore () {
+        window.localStorage.removeItem('store')
+      }
+      clearStore () {
+        window.localStorage.clear()
+      }
+      getStoreWhere (index) {
+        window.localStorage.key[index]
+      }
+      getStoreLength () {
+        alert('本地存储的长度' + window.localStorage.length)
+      }
+    }
+
+    /**
+     * Socket
+     */
+    var so;
+    var inner = '';
+    function createSocket () {
+      // 判断浏览器支不支持
+      if('WebSocket' in window) {
+        so = new WebSocket('ws://123.207.136.134:9010/ajaxchattest')
+        console.log(so.binaryType) // blob || arraybuffer
+        console.log(so.readyState)
+        so.onopen = function() {
+          console.log('socket已连接')
+        }
+        so.onmessage = function(e) {
+          console.log(e.data)
+          inner += e.data
+          document.querySelector('.talking-frame').innerHTML = inner
+        }
+        so.onerror = function(err) {
+          console.log(err)
+        }
+        so.onclose = function() {
+
+        }
+      } else {
+        alert('您的浏览器不支持websocket!')
+      }
+    }
+    function sendMsg() {
+      if(!so) {
+        alert('请先创建socket')
+      } else {
+        let str = document.querySelector('#msg').value;
+        so.send(str)
+      }
+    }
+
+    /**
+     * Webworker
+     */
+     function cal(){
+        let a=1;
+        for(let i=1;i<10000;i++){
+            for(let j=1;j<10000;j++){
+                for(let k=1;k<100;k++){
+                    a+=(i+j+k); 
+                }
+            }
+            
+        }
+        postMessage(a);
+    }
+    function createWorker () {
+      console.time('start')
+      // 防止cal.js阻塞
+      let ww = new Worker("js/cal.js");
+      ww.onmessage=function(event){
+          let data = event.data;
+          console.log(data);
+          console.timeEnd('start');
+      }
+      // 这里直接运行会阻塞
+      // cal();
+      // console.timeEnd('start');
+      console.log('这里先走')
+    }
+
+    /**
+     * Canvas
+     */
+    function createCanvas () {
+      let can = document.querySelector('#canvas')
+      can.setAttribute('width',600)
+      can.setAttribute('height',500)
+      let gtx = can.getContext('2d') // 1、获取绘图上下文, 相当于画笔
+      gtx.beginPath()                // 2、开始画
+      // arc
+      gtx.arc(100,100,100,0,1.5*Math.PI)// 3、画圆
+      
+      let grd=gtx.createLinearGradient(0,0,500,300);
+      grd.addColorStop(0,"black");
+      grd.addColorStop(1,"red");
+
+      let img = document.getElementById('img')
+      let newPatten = gtx.createPattern(img,'repeat') //相当于平铺
+
+     // gtx.fillStyle = '#eee'         // 4、填充的样式
+     // gtx.fillStyle = grd
+      gtx.globalAlpha=0.2 // 透明度 (先设置，再绘图)
+      gtx.fillStyle = newPatten
+      gtx.strokeStyle = '#171717'    // 描边样式，设置或返回用于笔触的颜色、渐变或模式
+      gtx.shadowColor = '#888'
+      gtx.shadowBlur = 10
+      gtx.shadowOffsetX = 3
+      gtx.shadowOffsetY = 3
+      gtx.fill()                     // 5、填充
+      gtx.stroke()                   // 描边
+      // img,sx,sy,swidth,sheight,x,y,width,height； 绘制图像、画布或视频，
+      // let img = document.getElementById('img')
+      // gtx.drawImage(img,250,150,100,100) 
+      // 文字
+      gtx.font = 'italic small-caps bold 30px MicrosoftYaHei'
+      // gtx.fillText('Hello!', 70,400)
+      gtx.strokeText('Hello!', 70,400)
+    }
+
+    /**
+     * 拖放API
+     */
+    
+    function dragDrop() {
+      document.ondrop = function(e) {
+        e.preventDefault() // 阻止默认事件（打开新窗口）
+      }
+      document.ondragover = function(e) {
+        e.preventDefault() // 阻止默认事件（打开新窗口）
+      }
+
+      let originTar = document.querySelector('.drag-item')
+      let targetTar = document.querySelector('.drop-item')
+
+      originTar.setAttribute('draggable',true)
+      originTar.addEventListener('drag', (e) => {
+        console.log(e)
+        e.target.style.visibility = 'hidden'
+      })
+      originTar.addEventListener('dragend', (e) => {
+        console.log('结束')
+        e.target.style.visibility = 'visible'
+        e.target.style.top = e.y + 'px'
+        e.target.style.left = e.x + 'px'
+      })
+      
+      // 将浏览器外的图片拖入框中
+      targetTar.addEventListener('drop',(e) => {
+        let file = e.dataTransfer.files[0]
+        console.log(file)
+        let reader = new FileReader()
+        if(file) {
+          reader.readAsDataURL(file)
+          reader.onload = function() {
+            let img = new Image()
+            img.src = reader.result
+            targetTar.appendChild(img)
+          }
+        }
+      })
+    }
+
+    window.onload = function() {
+      let locationNew = new Location()
+      let storeNew = new Store()
+      createCanvas()
+      dragDrop()
+    }
+    
+  </script>
+</body>
+</html>

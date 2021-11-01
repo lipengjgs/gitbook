@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打开链接方式</title>
+</head>
+<body>
+    <p>
+        <a href="http://www.baidu.com">当前窗口打开，可后退</a>
+    </p>
+    <p>
+        <a href="javascript:openCanBack()">当前窗口打开，可后退</a>
+    </p>
+    <p>
+        <a href="javascript:openCantBack()">当前窗口打开，不可后退</a>
+    </p>
+    <p>
+        <a href="http://www.baidu.com" target="_blank">新窗口打开，可重复</a>
+    </p>
+    <p>
+        <a href="javascript:openRepeatWin()">新窗口打开， 可重复</a>
+    </p>
+    <p>
+        <a href="http://www.baidu.com" target="baidu">新窗口打开，打开一个</a>
+    </p>
+    <p>
+        <a href="javascript:openOneWin()">新窗口打开，打开一个</a>
+    </p>
+    
+    <script>
+        function openCanBack() {
+            window.open('http://www.baidu.com', '_self')
+        }
+        function openCantBack() {
+            location.replace('http://www.baidu.com')
+        }
+        function openRepeatWin() {
+            window.open('http://www.baidu.com', '_blank')
+            // window.open('http://www.baidu.com')
+        }
+        function openOneWin() {
+            window.open('http://www.baidu.com', 'baidu')
+        }
+    </script>
+</body>
+</html>

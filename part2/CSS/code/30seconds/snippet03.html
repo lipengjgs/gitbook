@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hamburger</title>
+  <style>
+    .hamburger {
+      position: relative;
+      cursor: pointer;
+      width: 40px;
+      height: calc(40px / 1.414 + 5.2px);
+    }
+    .hamburger .bar {
+      position: absolute;
+      width: 100%;
+      height: 5px;
+      background: #000;
+      border-radius: 2.5px;
+      transform-origin: left; /* 一定在transition之前写 */
+      transition: all .2s;
+    }
+    .hamburger .bar.middle {
+      top: 50%;
+      transform: translateY(-51%);
+    }
+    .hamburger .bar.top {
+      top: 0;
+    }
+    .hamburger .bar.bottom {
+      bottom: 0;
+    }
+    .hamburger:hover .bar.top {
+      transform: rotate(45deg);
+    }
+    .hamburger:hover .bar.bottom {   
+      transform: rotate(-45deg);
+    }
+    .hamburger:hover .bar.middle {
+      opacity: 0;
+    }
+
+    /* 原版 */
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      height: 2.5rem;
+      width: 2.5rem;
+      cursor: pointer;
+    }
+
+    .hamburger-menu .bar {
+      height: 5px;
+      background: black;
+      border-radius: 5px;
+      margin: 3px 0px;
+      transform-origin: left;
+      transition: all 0.5s;
+    }
+
+    .hamburger-menu:hover .top {
+      transform: rotate(45deg);
+    }
+
+    .hamburger-menu:hover .middle {
+      opacity: 0;
+    }
+
+    .hamburger-menu:hover .bottom {
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="hamburger-menu">
+    <div class="bar top"></div>
+    <div class="bar middle"></div>
+    <div class="bar bottom"></div>
+  </div>
+</body>
+</html>

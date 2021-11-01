@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文件上传</title>
+</head>
+
+<body>
+  <div class="file-upload">
+    <input id="file" type="file" onchange="fileChoose()" multiple>
+  </div>
+  <div class="file-info">
+    <table>
+      <tr>
+        <td>文件名</td>
+        <td>文件大小</td>
+        <td>文件类型</td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <button onclick="upload()">上传</button>
+  </div>
+  <script>
+    let fileInput = document.querySelector('#file');
+    let table = document.querySelector('table');
+    let files = fileInput.files;
+    // byte单位格式化
+    function format(size) {
+      if (!size) {
+        return ''
+      }
+      size = parseInt(size);
+      if (size > 1024 * 1024) {
+        size = (size / (1024 * 1024)).toFixed(2) + 'MB';
+      } else {
+        size = (size / 1024).toFixed(2) + 'KB';
+      }
+      return size;
+    }
+    // 选择文件时可以拿到选择文件的信息
+    function fileChoose() {
+      if (files) {
+        let trs = document.createDocumentFragment();
+        Array.prototype.forEach.call(files, (file) => {
+          let tr = document.createElement('tr');
+          let keyForShowArr = ['name', 'size', 'type'];
+          keyForShowArr.forEach((k) => {
+            let td = document.createElement('td');
+            if (k === 'size') {
+              td.innerHTML = format(file[k]);
+            } else {
+              td.innerHTML = file[k] ? file[k] : '';
+            }
+            tr.appendChild(td);
+          })
+          trs.appendChild(tr);
+        })
+        table.appendChild(trs);
+      }
+    }
+    // 上传选中的文件
+    function upload() {
+      Array.prototype.forEach.call(files, (file, i) => {
+          let data = new FormData();
+          data.append('file' + i, file); // 这个是完整上传
+          // 假如要分片上传
+          let xhr = new XMLHttpRequest();
+          xhr.upload.addEventListener('load', (event) => {
+
+          })
+          xhr.upload.addEventListener('loadstart', (event) => {
+
+          })
+          xhr.upload.addEventListener('loadend', (event) => {
+
+          })
+          xhr.upload.addEventListener('progress', (event) => {
+
+          })
+          xhr.upload.addEventListener('timeout', (event) => {
+
+          })
+          xhr.upload.addEventListener('error', (event) => {
+
+          })
+          xhr.upload.addEventListener('abort', (event) => {
+
+          })
+          xhr.open('POST', '/post');
+          xhr.send(data);
+        })
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>property filter</title>
+    <style>
+        html {
+            --color-jaffa: #f29235;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            height : auto;
+            max-width: 100%;
+            padding-bottom: 10vw;
+        }
+        .button {
+            position: absolute;
+            bottom: 2vw;
+        }
+        .has-orange-glow {
+            filter: drop-shadow(0.25rem 0 2rem var(--color-jaffa));
+            transition: filter 200ms ease-in-out;
+        }
+        .css-trick-logo {
+            width: 55vw;
+        }
+    </style>
+</head>
+<body>
+    <img alt="CSS-Tricks." id="logo" class="css-tricks-logo" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/11907/logo-css-tricks.png"/>
+    <button aria-pressed="false" class="button" type="button">
+      Toggle glow
+    </button>
+
+    <script>
+        const button = document.querySelector('button');
+        button.addEventListener('click', () => {
+            document.querySelector('img').classList.toggle('has-orange-glow')
+        })
+    </script>
+</body>
+</html>

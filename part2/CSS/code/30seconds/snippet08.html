@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS冷知识</title>
+  <style>
+    .content {
+      height: 500px;
+      border: 1px dashed #aaa;
+    }
+    /* 第一个不难理解 */
+    .e1 div {
+      width: 200px;
+      height: 200px;
+      float: left;
+    }
+    .e1 .red {
+      background: red;
+      margin-right: -50px;
+    }
+    .e1 .green {
+      background: green;
+    }
+    /* 定位 */
+    .e2 {
+      position: relative;
+    }
+    .e2 div {
+      position: absolute;
+      background: pink;
+      top: 100px;
+      bottom: 100px;
+      left: 100px;
+      right:100px
+    }
+    /* 饼图 */
+    .e3 .circle {
+      /* conic-gradient 只在chrome中生效 */
+      background: conic-gradient(red 0 30%, green 30% 40%, blue 40% 100%);
+      /* background: -moz-conic-gradient(red 0 30%, green 30% 40%, blue 40% 100%); */
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+    /* 描边 */
+    .e4 div {
+      width: 100px;
+      height: 100px;
+      background: brown;
+      border: 10px dashed blue;
+      outline: 10px dashed blueviolet;
+      outline-offset: -20px;
+    }
+    /* padding 百分比是宽度 */
+    .e5 div {
+      width: 200px;
+      background: chartreuse;
+      display: flex;
+    }
+    .e5 div::after {
+      content: '';
+      padding-top: 100%;
+    }
+
+    .e6 div {
+      height: 100px;
+      background: darkolivegreen;
+      margin-bottom: 30px;
+    }
+    .e6 .p1 {
+      font-size: 0;
+    }
+    .e6 .p2 {
+      overflow: hidden;
+      text-indent: -1000px;
+    }
+
+    .e7 {
+      display: flex;
+    }
+    .e7 div {
+      width: 100px;
+      height: 100px;
+      background: red;
+      margin: auto; /* 这个可以 */
+    }
+
+    .e8 div {
+      width: 100px;
+      height: 100px;
+      background: red;
+      animation: rotate 1s linear infinite;
+    }
+    .e8 div:hover {
+      animation-play-state: paused;
+    }
+    @keyframes rotate {
+      100% {
+        transform: rotate(1turn);
+      }
+    }
+
+    .e9 .table {
+      display: table;
+      width: 500px;
+      border-spacing: 30px 0;
+    }
+    .e9 .table div {
+      background: red;
+      border: 1px solid rebeccapurple;
+      display: table-cell;
+    }
+
+    .e10 div {
+      width: 100%;
+      height: 50px;
+      background: repeating-linear-gradient(90deg, red 50px, blue 80px, purple 50px);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>负边距的效果</h1>
+    <div class="content e1">
+      <div class="red"></div>
+      <div class="green"></div>
+    </div>
+
+    <h1>定位设定宽高</h1>
+    <div class="content e2">
+      <div></div>
+    </div>
+
+    <h1>角向渐变实现饼图</h1>
+    <div class="content e3">
+      <div class="circle"></div>
+    </div>
+
+    <h1>outline描边：不占位置的外边框和内边框</h1>
+    <div class="content e4">
+      <div></div>
+    </div>
+
+    <h1>样式的百分比：实现定宽高比的原理</h1>
+    <div class="content e5">
+      padding的百分比是相对于其包含块的宽度，而不是高度
+      <div>
+        Label
+      </div>
+    </div>
+
+    <h1>隐藏文本常用的两种方法</h1>
+    <div class="content e6">
+      <div class="p1">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. A laborum amet voluptatum perferendis neque magnam eius libero ratione quam culpa iste at provident tempore saepe eligendi ipsam, architecto ad nulla.
+      </div>
+      <div class="p2">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio dolorem illo, ducimus quos saepe modi architecto! At fugiat dignissimos eveniet aliquid voluptatibus magni recusandae, natus molestiae harum culpa aut molestias.
+      </div>
+    </div>
+
+    <h1>flex居中</h1>
+    <div class="content e7">
+      <div></div>
+    </div>
+
+    <h1>动画暂停： CSS样式</h1>
+    <div class="content e8">
+      <div></div>
+    </div>
+
+
+    <h1>table实现多列布局</h1>
+    <div class="content e9">
+      <div class="table">
+        <div style="height: 100px;"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <h1>彩带制作</h1>
+    <div class="content e10">
+      <div></div>
+    </div>
+  </div>
+</body>
+</html>

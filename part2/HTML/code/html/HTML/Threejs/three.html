@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MyThree</title>
+  <script src="./js/three.min.js"></script>
+    <script src="./js/OrbitControls.js"></script>
+    <script src="./js/GLTFLoader.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+    #container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    a {
+      position:absolute;
+        z-index:1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+
+  </div>
+
+  <a href="https://sketchfab.com">sketchfab(here to download gltf files)</a>
+
+  <script>
+    /**
+     * Six Steps
+     * 1、Initial Setup
+     * 2、The Scene
+     * 3、The Camera
+     * 4、Visible Objects
+          4.1 The Geometry (几何结构)
+          4.2 The Material (物体表面属性)
+          4.3 The Mesh (网格)
+          4.4 Add Mesh to the Scene
+     * 5、The Renderer
+     * 6、Render the Scene
+     */
+
+    // 1
+    const container = document.querySelector('#container');
+    // 2
+    const scene = new  THREE.Scene();
+    scene.background = new THREE.Color(0x8FBCD4);
+    // 3
+    const fov = 35;
+    const aspect = container.clientWidth/container.clientHeight;
+    const near = 0.1;
+    const far = 100;
+    const camera = new THREE.PerspectiveCamera(fov,aspect,near,far);
+    camera.position.set(0,0,10);
+    // 4
+    const geometry = new THREE.BoxBufferGeometry(2,2,2);
+
+    // 普通材质
+    // const material = new THREE.MeshStandardMaterial({ color: 0x800080 });
+    // 贴2D材质
+    const textureLoader = new THREE.TextureLoader();
+    const texture = textureLoader.load('res/tc.png');
+    texture.encoding = THREE.sRGBEncoding;
+    texture.anisotropy = 16;
+    const material = new THREE.MeshStandardMaterial({
+      map: texture
+    })
+
+    const mesh = new THREE.Mesh(geometry,material);
+    //scene.add(mesh);
+
+    const light = new THREE.DirectionalLight(0xffffff,2.5);
+    light.position.set(10,10,10);
+    scene.add(light);
+
+    // Loading Models
+    function loadModels() {
+        const loader = new THREE.GLTFLoader();
+
+        const onload = (gltf,position) => {
+            const model = gltf.scene.children[0];
+            model.position.copy(position);
+
+            /*const animation = gltf.animations[0];
+            const mixer = new THREE.AnimationMixer(model);
+            mixers.push(mixer);
+
+            const action = mixer.clipAction(animation);
+            action.play();*/
+
+            //model.scale.set(30)
+            scene.add(model)
+            renderer.setAnimationLoop(()=>{
+                //model.rotation.x += 0.01;
+                model.rotation.z += 0.01;
+                renderer.render(scene,camera)
+            })
+        }
+
+        const onProgress = () => {};
+
+        const onError = (errorMessage) => { console.log(errorMessage)};
+
+        const modelPosition = new THREE.Vector3(0,0,0);
+        loader.load('res/models/scene.gltf',gltf => onload(gltf,modelPosition), onProgress, onError)
+
+    }
+    loadModels();
+
+
+    let controls;
+    function createControls() {
+        controls = new THREE.OrbitControls(camera,container)
+    }
+    createControls();
+    // 5
+    const renderer = new THREE.WebGLRenderer({antialias : true});
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    renderer.gammaFactor = 2.2;
+    renderer.gammaOutput = true;
+
+    container.appendChild(renderer.domElement);
+    // 6
+    // function animate() {
+    //   requestAnimationFrame( animate )
+
+    //   mesh.rotation.z += 0.01;
+    //   mesh.rotation.x += 0.01;
+    //   mesh.rotation.y += 0.01;
+
+    //   renderer.render(scene,camera)
+    // }
+    // animate();
+
+    function update() {
+      mesh.rotation.z += 0.01;
+      mesh.rotation.x += 0.01;
+      mesh.rotation.y += 0.01;
+    }
+
+    function render() {
+      renderer.render(scene,camera)
+    }
+
+    /*renderer.setAnimationLoop(()=>{
+      update();
+      render();
+    })*/
+
+    function stop() {
+      renderer.setAnimationLoop(null);
+    }
+
+    function onWindowResize() {
+      camera.aspect = container.clientWidth/container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth,container.clientHeight);
+    }
+
+    window.addEventListener('resize',onWindowResize);
+
+
+
+
+  </script>
+</body>
+</html>

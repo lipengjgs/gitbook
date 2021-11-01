@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>各种布局</title>
+    <style media="screen">
+        html * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .layout,
+        .layout1 {
+            margin-bottom: 20px;
+        }
+
+        .layout div,
+        .layout1 div {
+            min-height: 100px;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>三栏布局解决方案</h2>
+    <!-- 浮动布局1 -->
+    <section class="layout float1">
+        <style>
+            .layout.float1 .left {
+                float: left;
+                width: 200px;
+                background: #22e022;
+            }
+
+            .layout.float1 .center {
+                background: #00eeee;
+                height: 200px;
+                /* 测试是否可以等高自适应 */
+            }
+
+            .layout.float1 .right {
+                float: right;
+                width: 200px;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="center">
+                <p>浮动布局1</p>
+                <p>浮动布局1</p>
+                <p>浮动布局1</p>
+                <p>浮动布局1</p>
+            </div>
+        </article>
+    </section>
+    <!-- 浮动布局2 -->
+    <section class="layout float2 overflow-hidden">
+        <style>
+            .layout.float2 .left {
+                float: left;
+                width: 200px;
+                margin-left: -100%;
+                background: #22e022;
+            }
+
+            .layout.float2 .center {
+                float: left;
+                width: 100%;
+                background: #00eeee;
+            }
+
+            .layout.float2 .center div {
+                margin: 0 200px;
+                background: rgb(213, 226, 30);
+                height: 200px;
+                /* 测试是否可以等高自适应 */
+            }
+
+            .layout.float2 .right {
+                float: left;
+                width: 200px;
+                margin-left: -200px;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="center">
+                <div>
+                    <p>浮动布局2</p>
+                    <p>浮动布局2</p>
+                    <p>浮动布局2</p>
+                    <p>浮动布局2</p>
+                </div>
+            </div>
+            <div class="left"></div>
+            <div class="right"></div>
+        </article>
+    </section>
+    <!-- table布局 -->
+    <section class="layout table">
+        <style>
+            .layout.table article {
+                display: table;
+                width: 100%;
+            }
+
+            .layout.table .left,
+            .layout.table .center,
+            .layout.table .right {
+                display: table-cell;
+                table-layout: fixed;
+            }
+
+            .layout.table .left {
+                width: 200px;
+                background: #22e022;
+            }
+
+            .layout.table .center {
+                background: rgb(213, 226, 30);
+                height: 200px;
+                /* 测试是否可以等高自适应 */
+            }
+
+            .layout.table .right {
+                width: 200px;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="left"></div>
+            <div class="center">
+                <p>table布局</p>
+                <p>table布局</p>
+                <p>table布局</p>
+                <p>table布局</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+    <!-- flex 布局 -->
+    <section class="layout flex">
+        <style>
+            .layout.flex article {
+                display: flex;
+            }
+
+            .layout.flex .left {
+                width: 200px;
+                background: #22e022;
+            }
+
+            .layout.flex .center {
+                background: rgb(213, 226, 30);
+                height: 200px;
+                /* 测试是否可以等高自适应 */
+                flex: 1;
+            }
+
+            .layout.flex .right {
+                width: 200px;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="left"></div>
+            <div class="center">
+                <p>flex布局</p>
+                <p>flex布局</p>
+                <p>flex布局</p>
+                <p>flex布局</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+    <!-- 绝对定位 布局 -->
+    <section class="layout absolute">
+        <style>
+            .layout.absolute article div {
+                position: absolute;
+            }
+
+            .layout.absolute .left {
+                left: 0;
+                width: 200px;
+                background: #22e022;
+            }
+
+            .layout.absolute .center {
+                left: 200px;
+                right: 200px;
+                background: rgb(213, 226, 30);
+                height: 200px;
+                /* 测试是否可以等高自适应 */
+            }
+
+            .layout.absolute .right {
+                right: 0;
+                width: 200px;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="left"></div>
+            <div class="center">
+                <p>绝对定位布局</p>
+                <p>绝对定位布局</p>
+                <p>绝对定位布局</p>
+                <p>绝对定位布局</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+    <!-- 网格 布局 -->
+    <section class="layout grid">
+        <style>
+            .layout.grid {
+                margin-top: 240px;
+            }
+
+            .layout.grid article {
+                display: grid;
+                width: 100%;
+                grid-template-columns: 200px auto 200px;
+            }
+
+            .layout.grid .left {
+                width: 200px;
+                height: 100px;
+                background: #22e022;
+            }
+
+            .layout.grid .center {
+                background: rgb(213, 226, 30);
+                height: 200px;
+                /* 测试是否可以等高自适应 */
+            }
+
+            .layout.grid .right {
+                width: 200px;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="left"></div>
+            <div class="center">
+                <p>grid布局</p>
+                <p>grid布局</p>
+                <p>grid布局</p>
+                <p>grid布局</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+    <hr>
+
+    <h2>两栏布局解决方案</h2>
+    <!-- 浮动布局 -->
+    <section class="layout1 float">
+        <style>
+            .layout1.float .left {
+                float: left;
+                width: 200px;
+                background: #22e022;
+            }
+
+            .layout1.float .right {
+                height: 200px;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="left"></div>
+            <div class="right">
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+            </div>
+        </article>
+    </section>
+
+    <section class="layout1 float1">
+        <style>
+            .layout1.float1 .left {
+                height: 200px;
+                background: #22e022;
+            }
+
+            .layout1.float1 .right {
+                float: right;
+                width: 200px;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="right"></div>
+            <div class="left">
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+            </div>
+
+        </article>
+    </section>
+
+    <!-- 绝对定位布局 -->
+    <section class="layout1 absolute">
+        <style>
+            .layout1.absolute .left,
+            .layout1.absolute .right {
+                position: absolute;
+            }
+
+            .layout1.absolute .left {
+                left: 0;
+                width: 200px;
+                background: #22e022;
+            }
+
+            .layout1.absolute .right {
+                left: 200px;
+                right: 0;
+                background: #d80a0a;
+                height: 200px;
+            }
+        </style>
+        <article>
+            <div class="left"></div>
+            <div class="right">
+                <p>绝对定位两列布局</p>
+                <p>绝对定位两列布局</p>
+                <p>绝对定位两列布局</p>
+                <p>绝对定位两列布局</p>
+            </div>
+        </article>
+    </section>
+
+    <section class="layout1 absolute1">
+        <style>
+            .layout1.absolute1 {
+                margin-top: 240px;
+            }
+
+            .layout1.absolute1 .left,
+            .layout1.absolute1 .right {
+                position: absolute;
+            }
+
+            .layout1.absolute1 .left {
+                left: 0;
+                right: 200px;
+                height: 200px;
+                background: #22e022;
+            }
+
+            .layout1.absolute1 .right {
+                width: 200px;
+                right: 0;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="left">
+                <p>绝对定位两列布局</p>
+                <p>绝对定位两列布局</p>
+                <p>绝对定位两列布局</p>
+                <p>绝对定位两列布局</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+    <!-- table布局 -->
+    <section class="layout1 absolute1">
+        <style>
+            .layout1.absolute1 {
+                margin-top: 240px;
+            }
+
+            .layout1.absolute1 .left,
+            .layout1.absolute1 .right {
+                position: absolute;
+            }
+
+            .layout1.absolute1 .left {
+                left: 0;
+                right: 200px;
+                height: 200px;
+                background: #22e022;
+            }
+
+            .layout1.absolute1 .right {
+                width: 200px;
+                right: 0;
+                background: #d80a0a;
+            }
+        </style>
+        <article>
+            <div class="left">
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+                <p>float两列布局</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+</body>
+
+</html>

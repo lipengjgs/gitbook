@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>self-define style of radio</title>
+    <link rel="stylesheet" href="../../css/form/radio.css">
+</head>
+<body>
+    <!-- 实现思路，将原有radio透明度调为0，不可见，利用外层span（外壳）和里面的i:after（点），当checked状态时，点出现 -->
+    <div>
+        <span class="new-radio"><input id="first_radio" name="radio" type="radio"><i></i></span>
+        <label for="first_radio">change the style of the radio</label>
+    </div>
+    <div>
+        <span class="new-radio"><input id="second_radio" name="radio" type="radio"><i></i></span>
+        <label for="second_radio">change the style of the radio</label>
+    </div>
+</body>
+</html>

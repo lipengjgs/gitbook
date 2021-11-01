@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>拖拽API</title>
+  <style>
+    body {
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+    .drag-item {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: red;
+      position: absolute;
+    }
+    .drop-zone {
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: aqua;
+      margin-left: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="item" class="drag-item" draggable="true">
+
+  </div>
+  <div id="zone" class="drop-zone">
+
+  </div>
+
+  <script>
+    var dragItem = document.querySelector('#item');
+    var dropZone = document.querySelector('#zone');
+
+    var offsetX, offsetY;
+
+    dragItem.addEventListener('dragstart', (e) => {
+      // 火狐中要求被拖动元素必须包含数据，而且会默认将你携带的数据在新的页面上打开
+      console.log('开始移动');
+      e.dataTransfer.setData('text', '火狐要传输数据才能玩啊！')
+      offsetX = e.offsetX;
+      offsetY = e.offsetY;
+    })
+    dragItem.addEventListener('drag', (e) => {
+      console.log('移动');
+      let x = e.pageX;
+      let y = e.pageY;
+      if (x === 0 && y === 0) { // 不处理最后一刻x , y都为0 的情景
+        return;
+      }
+      x -= offsetX;
+      y -= offsetY;
+      dragItem.style.left = x + 'px';
+      dragItem.style.top = y + 'px';
+    })
+    dragItem.addEventListener('dragend', (e) => {
+      console.log('移动结束');
+    })
+    // chrome中drop不生效，需要在enter和over处阻止默认行为
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      console.log('有东西丢进来了');
+      console.log(e.dataTransfer.getData('text'));
+    })
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      console.log('dragover');
+    })
+    dropZone.addEventListener('dragenter', (e) => {
+      e.preventDefault();
+      console.log('dragenter');
+    })
+    // 解决火狐弹出新页面的问题
+    // document.body.addEventListener('dragover', (e) => {
+    //   e.stopPropagation();
+    //   e.preventDefault();
+    // })
+    document.body.addEventListener('drop', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+    })
+  </script>
+</body>
+
+</html>

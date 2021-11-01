@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebSocket</title>
+</head>
+
+<body>
+  <div id="content">
+
+  </div>
+  <div>
+    <input id="msg" type="text" placeholder="请输入聊天内容">
+    <button onclick="send()">发送</button>
+  </div>
+  <script>
+    var container = document.getElementById('content');
+    var chatContent = document.querySelector('#msg');
+    var ws = new WebSocket('ws://121.40.165.18:8800');
+    ws.onopen = () => {
+      ws.send('open');
+    }
+    ws.onmessage = (data) => {
+      console.log(data);
+      let frag = document.createElement('div');
+      frag.innerHTML = data.data;
+      container.appendChild(frag);
+    }
+    ws.onclose = () => {
+      let frag = document.createElement('div');
+      frag.innerHTML = '连接已断开';
+      container.appendChild(frag);
+    }
+
+    function send() {
+      let msg = chatContent.value;
+      ws.send(msg)
+    }
+  </script>
+</body>
+
+</html>

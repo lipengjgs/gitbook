@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>使用文本标记为HTML页面添加内容</title>
+ </head>
+ <body>
+		<h1 align=center>HTML5<span style="color:red;">&lt;Day01&gt;</span></h1>
+		<ol>
+			<li>HTML文档片段
+				<ul>
+					<li><a href="#problem">问题</a></li>
+					<li><a href="#case">方案</a></li>
+					<li><a href="#realize">实现</a></li>
+					<li><a href="#ext">扩展</a></li>
+				</ul>
+			</li>
+			<li>我的第一个HTML文档
+				<ul>
+					<li>问题</li>
+					<li>方案</li>
+					<li>实现</li>
+				</ul>
+			</li>
+		</ol>
+		<hr size="2px" color="#ddd"/>
+		<h2>1 HTML 文档片段</h2>
+		<!--还可以用<a name="problem"></a>当做锚点标记-->
+    <a name="problem"></a>
+		<h3>1.1 问题</h3>
+		<p>创建如图-1所示的HTML页面</p>
+		<div align="center">
+			<img src="imgs/image001.png" alt="img001">
+			<p>图-1</p>
+		</div>
+		<h3 id="case">1.2 方案</h3>
+		<p>使用HTML标记来完成该页面效果</p>
+		<div align="center">
+			<!--稍微注意一下target属性-->
+			<a href="tmooc.cn" target="_self"><img src="imgs/image002.png" alt="img001"></a>
+			<p>图-2</p>
+		</div>
+		<h3 id="realize">1.3 实现</h3>
+		<p>建立一个文本文件，并修改文件名称为&nbsp;first.html&nbsp;，然后使用文本编辑器打开该文件，并为该文件添加代码，以创建标准格式的 HTML 文档。</p>
+    <p>然后，在 body 元素中添加代码，以创建居中显示的段落文本。代码如下所示：</p>
+		<!--pre为预格式化元素-->
+		<pre>
+						&lt;p align="center" title="段落"&gt;
+								居中显示的段落。
+						&lt;/p&gt;
+		</pre>
+		<h3 id="ext">1.4 扩展</h3>
+		<p>创建如下图所示的表格</p>
+		<table border="1px" align="center">
+			<caption>表-1</caption>
+				<tr>
+						<td>全月应纳税所得额</td>
+						<td>税率</td>
+						<td>速算扣除数</td>
+				</tr>
+				<tr>
+						<td>全月应纳税所得额&lt;1500</td>
+						<td>3%</td>
+						<td>0</td>
+				</tr>
+				<tr>
+						<td>500=&lt;全月应纳税所得额&lt;4500</td>
+						<td>10%</td>
+						<td>105</td>
+				</tr>
+				<tr>
+							<td colspan="3">...</td>
+				</tr>
+				<tr>
+							<td>计算公式为：</td>
+							<td colspan="2">应纳税额＝全月应纳税所得额*适用税率-速算扣除数</td>
+				</tr>
+	</table>
+	<p align="center">
+		<a href="#">关于我们</a>
+		<a href="mailto:tts@tarena.com.tn">联系我们</a>
+		<a href="#">广告服务</a>
+	</p>
+	<p align="center">版权所有&copy; 达内科技集团</p>
+	<p><a href="#">to top</a></p>
+ </body>
+</html>

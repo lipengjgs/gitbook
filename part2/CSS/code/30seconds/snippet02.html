@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>消除inline-block间距</title>
+  <style>
+    .tiles {
+      width: 600px;
+      font-size: 0; /* 消除间距 */
+      margin: 0 auto;
+    }
+
+    .tile {
+      width: calc(600px / 3);
+      display: inline-block;
+    }
+
+    .tile h2 {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tiles">
+    <div class="tile">
+      <img src="https://via.placeholder.com/200x150">
+      <h2>30 Seconds of CSS</h2>
+    </div>
+    <div class="tile">
+      <img src="https://via.placeholder.com/200x150">
+      <h2>30 Seconds of CSS</h2>
+    </div>
+    <div class="tile">
+      <img src="https://via.placeholder.com/200x150">
+      <h2>30 Seconds of CSS</h2>
+    </div>
+  </div>
+</body>
+</html>

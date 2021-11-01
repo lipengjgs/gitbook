@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>menu-hover</title>
+  <style>
+    .hover-menu {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+    .hover-menu div {
+      position: absolute;
+      width: 100px;
+      left: -100px;
+      text-align: center;
+      top: 0;
+      bottom: 0;
+      transition: all .3s ease-in-out;
+    }
+    .hover-menu ul, .hover-menu ul > li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .hover-menu ul > li {
+      line-height: 50px;
+    }
+    .hover-menu:hover div {
+      left: 0;
+    }
+    .hover-menu img {
+      position: relative;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    .hover-menu:hover img {
+      left: 100px; /* 一定要有初始值 */
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="hover-menu">
+    <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="">
+    <div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Mine</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

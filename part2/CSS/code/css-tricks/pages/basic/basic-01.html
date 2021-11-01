@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .position {
+      display: none;
+    }
+    .position .rel {
+      position: relative;
+      top: 10px; /* position依然是200px高度 */
+      width: 100%;
+      height: 2000px; 
+      background: red;
+    }
+    .position .abs {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: blue;
+      right: 10px;
+      top: 10px;
+      z-index: 2; /* 同级比较 */
+    }
+    .position .fixed {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: yellow;
+      top: 15px;
+      right: 5px;
+    }
+    .position .sticky {
+      position: sticky; /* 兼容性不好(fixed 与 relative 的结合体) */
+      background: purple;
+      width: 50px;
+      height: 50px;
+      top: 50px;
+    }
+
+    .display {
+
+    }
+    .display > .inline, .display > .inline-block {
+      font-size: 0; 
+      /* 消除display:inline之间的间隔, 因为两个div之间有换行或者间隔 */
+    }
+    .display > .inline div {
+      display: inline;
+      font-size: 16px;
+    }
+    .display > .inline-block div {
+      display: inline-block;
+      font-size: 16px;
+    }
+    .display > .block span {
+      display: block;
+    }
+    .display > .table {
+      display: table;
+      /* auto：表格及单元格的宽度取决于其包含的内容。fixed：表格和列的宽度通过表格的宽度来设置，某一列的宽度仅由该列首行的单元格决定 */
+      table-layout: fixed;
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+    }
+    .display > .table div {
+      display: table-cell;
+      border: 1px solid #ddd;
+    }
+    .display > .table div:first-child {
+      width: 150px;
+    }
+    .display > .flex {
+      display: flex;
+      /* flex-direction: column; */
+    }
+    .display > .flex div {
+      border: 1px solid #ddd;
+      height: 100px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .display > .flex div:nth-child(1) {
+      order: 1;
+    }
+    .display > .grid {
+      display: grid;
+      /* grid-template-columns: 300px 200px;
+      grid-template-rows: 100px 150px 100px; */
+      grid-template-columns: repeat(auto-fill, 200px);
+    }
+    .float {
+      /* 清除浮动 */
+      /* overflow: hidden; */
+    }
+    .float::after {
+      display: block;
+      content: '';
+      clear: both;
+    }
+    .float .left {
+      width: 100px;
+      float: left;
+      background: lightcyan;
+    }
+    .float .right {
+      width: 100px;
+      height: 50px;
+      float: right;
+      background: aqua;
+    }
+    .float .middle {
+      background: #d1fdaf;
+      visibility: hidden;
+    }
+
+    .overflow {
+      width: 100px;
+      height: 100px;
+      background: darkorchid;
+      /* overflow: hidden; */
+      overflow-y: scroll; 
+    }
+    .overflow .inner {
+      margin-left: 10px;
+      width: 50px;
+      height: 200px;
+      background: #d1fdaf;
+    }
+    .size {
+
+    }
+    .size .w {
+      background: darkorange;
+      min-width: 900px;
+      max-width: 1400px;
+      height: 100px;
+      padding: 15px;
+      border: 5px solid #addfaf;
+      border-radius: 15px;
+      /* border-image: url('../../assets/travis-ci.png') */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="position">
+    <div class="rel">
+      <div class="abs">
+      </div>
+      <div class="fixed">
+      </div>
+      <div class="sticky">
+      </div>
+    </div>
+  </div>
+  <div class="display">
+    <div class="inline">
+      <div>inline-div01</div>
+      <div>inline-div02</div>
+    </div>
+    <div class="inline-block">
+        <div>inlineblock-div01</div>
+        <div>inlineblock-div02</div>
+      </div>
+    <div class="block">
+      <span>block-span01</span>
+      <span>block-span02</span>
+    </div>
+    <div class="table">
+      <div>tablecell-div01</div>
+      <div>tablecell-div02</div>
+    </div>
+    <div class="flex">
+      <div>flex-div01</div>
+      <div>flex-div02</div>
+      <div>flex-div03</div>
+    </div>
+    <div class="grid">
+      <div>grid-div01</div>
+      <div>grid-div02</div>
+      <div>grid-div03</div>
+      <div>grid-div04</div>
+      <div>grid-div05</div>
+      <div>grid-div06</div>
+    </div>
+  </div>
+  <div class="float">
+    <div class="left">left</div>
+    <div class="right">right</div>
+    <div class="middle">mid</div> 
+  </div>
+  <div class="overflow">
+    <div class="inner"></div>
+  </div>
+  <div class="size">
+    <div class="w">我是一个div</div>
+  </div>
+  <script>
+    
+  </script>
+</body>
+</html>

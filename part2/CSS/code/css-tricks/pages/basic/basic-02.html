@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic-02</title>
+  <style>
+    .font p {
+      font-weight: 600;
+      text-transform: uppercase;
+      text-indent: 2rem;
+      /* text-justify: inter-word; */
+      line-height: 26px;
+      direction: rtl;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 5px #aaa;
+    }
+    .background {
+      width: 200px;
+      height: 200px;
+      background: url('../../assets/travis-ci.png') no-repeat center/500px 500px content-box;
+    }
+    .appearance {
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+    }
+    .appearance button {
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background: hsla(20, 84%, 64%, 0.8);
+      color: rgba(100, 110, 120, 0.7);
+    }
+    .appearance button:disabled {
+      cursor: not-allowed;
+      color: #5243df;
+      opacity: 0.9;
+    }
+    @keyframes rotate {
+      from {
+        width: 0px;
+      }
+      5% {
+        width: 20px; 
+      }
+      10% {
+        transform: translate(10%, 10%);
+      }
+      20% {
+        transform: translate(50%, 50%)
+      }
+      40% {
+        transform: rotate3d(80%, 80%)
+      }
+      to {
+        width: 100px;
+      }
+    }
+    .rotate {
+      width: 50px;
+      height: 50px;
+      background: red;
+      animation: rotate 3s linear 0.5s infinite;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="color">
+
+  </div>
+  <div class="font">
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br>
+      Tempore esse libero officiis similique eaque repudiandae fuga enim architecto vero ut amet incidunt odit quo ea voluptatibus, <br> 
+      sint nostrum? Excepturi, dolor!
+    </p>
+  </div>
+  <div class="background"></div>
+  <div class="appearance">
+    <button>按钮</button>
+    <button disabled>无效按钮</button>
+  </div>
+  <div class="animate">
+    <div class="rotate"></div>
+    <div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>咱玩点高级的</title>
+        <link rel="shortcut icon" href="./wechat.png">
+    </head>
+    <body>
+        <span>.</span>
+
+        <div>
+            <h2>Demos</h2>
+            <ol type="1">
+                <li>
+                    <a href="./html/index.html" target="_blank">demos</a>
+                </li>
+                <li>
+                    <a href="./debugger.html" target="_blank">debugger</a>
+                </li>
+            </ol>
+        </div>
+        <script>
+            let i = 0;
+            let span = document.querySelector('span');
+            function run(time) {
+                console.log(time)
+                i++;
+                span.style.position = 'relative';
+                span.style.top = `${i}px`;
+                if(i < 60) {
+                    window.requestAnimationFrame(run);
+                }
+            }
+            window.requestAnimationFrame(run);
+        </script>
+    </body>
+</html>

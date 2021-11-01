@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    main {
+      height: 200px;
+      margin-bottom: 50px;
+    }
+  </style>
+
+<body>
+  <!-- 动态分享图标 -->
+  <main class="style-01">
+    <style>
+      .style-01 * {
+        box-sizing: border-box;
+      }
+      .inner {
+        transition: .4s;
+        opacity: 0;
+        transform: translate(-5px,5px) scale(.95);
+        position: absolute
+      }
+      .style-01 .outer:hover .inner{
+        opacity: 1;
+        transform: translate(0,0) scale(1);
+      }
+      .style-01 .btn {
+        display: inline-block;
+        padding: 16px 24px;
+        font-size: 24px;
+        font-weight: 500;
+        color: #fff;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: #1074e7;
+        border: 1px solid #1074e7;
+        border-radius: 3px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+    </style>
+    <a class="outer">
+      <div class="inner" role="button">
+        <span class="btn">
+            <span>↗</span>
+        </span>
+      </div>
+    </a>
+  </main>
+  <!-- 图像标签 -->
+  <main class="style-02">
+    <style>
+      .style-02 .circle{
+        font-family: Helvetica,Arial,sans-serif;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eff9f9;
+        position: relative;
+        transition: top .15s ease-in, box-shadow .12s ease-in;
+      }
+      .style-02 .circle img{
+        max-width: 60%;
+        max-height: 55%;
+      }
+      .style-02 .circle:hover {
+        box-shadow: 0 3px 8px 0 rgba(0,0,0,.2);
+      }
+      
+      .style-02 .circle:hover::before{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        bottom: -7px;
+        border: 6px solid transparent;
+        margin-right: -6px;
+        border-bottom-color: #1b1f23; 
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+      .style-02 .circle:hover::after{
+        content: attr(aria-label);
+        white-space: pre;
+        background: #1b1f23;
+        border-radius: 3px;
+        color: #fff;
+        letter-spacing: normal;
+        position: absolute;
+        top: 100%;
+        margin-top: 6px;
+        right: 50%;
+        padding: .5em .75em;
+        text-align: center;
+        transform: translateX(50%);
+        animation-name: tooltip-appear;
+        animation-duration: .1s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+      @keyframes tooltip-appear {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+    <div class="circle" aria-label="Travis CI">
+      <img src="../assets/travis-ci.png" alt="Travis CI">
+    </div>
+  </main>
+  <!-- 动态上下箭头 -->
+  <main class="style-03">
+    <style>
+      @font-face {
+        font-family:yunfont;
+        src: url('../assets/yunfont.ttf');
+      }
+      .style-03 {
+        font-family: yunfont;
+      }
+      .style-03 .outer:hover .arrow {
+        transform: rotate(180deg);
+      }
+      .style-03 .arrow {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+        font-style: normal;
+        color: #333;
+        transform: rotate(0deg);
+        transform-origin: 50% 50%;
+        transition: transform .2s ease-in 0s;
+      }
+      .style-03 .arrow::before {
+        content: "\e933";
+      }
+    </style>
+    <div class="outer">
+      <i class="arrow"></i>
+    </div>
+  </main>
+  <!-- 多彩边框 -->
+  <main class="style-04">
+    <style>
+      .style-04 .outer span{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        background: #000;
+      }
+      .style-04 .outer {
+        display: block;
+        width: 150px;
+        height: 50px;
+        padding: 5px;
+        border-radius: 6px;
+        color: #fff;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+        background-image: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+        cursor: pointer;
+        
+      }
+      .style-04 .outer:hover {
+        animation: color-rotate .5s linear infinite;
+      }
+      @keyframes color-rotate {
+        0%,
+        to {
+          background-image:linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe)
+        }
+        25% {
+          background-image:linear-gradient(115deg,#fad648,#a767e5,#12bcfe,#4fcf70)
+        }
+        50% {
+          background-image:linear-gradient(115deg,#a767e5,#12bcfe,#4fcf70,#fad648)
+        }
+        75% {
+          background-image:linear-gradient(115deg,#12bcfe,#4fcf70,#fad648,#a767e5)
+        }
+      }
+    </style>
+    <a class="outer">
+      <span>Start Coding</span>
+    </a>
+  </main>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点不到的小窗口</title>
+</head>
+<body>
+    <script>
+        var game = {
+            maxTop: 0,
+            maxLeft: 0,
+            winSize: 100,
+            offset: 0,
+            pop: null,
+
+            init() {
+                this.offset = window.outerHeight - window.innerHeight
+                console.log(screen)
+                this.maxTop = screen.availHeight - this.winSize - this.offset
+                this.maxLeft = screen.availWidth - this.winSize
+                let t = parseInt(Math.random() * (this.maxTop + 1))
+                let l = parseInt(Math.random() * (this.maxLeft + 1))
+                let config = `top=${t},left=${l},width=${this.winSize},height=${this.winSize}`
+                this.pop = window.open('about:blank','_blank',config)
+                console.log(this.pop.outerHeight)
+                this.pop.onmouseover = (e) => {
+                    let x = e.screenX
+                    let y = e.screenY
+                    for (;;) {
+                        let t = parseInt(Math.random() * (this.maxTop + 1))
+                        let l = parseInt(Math.random() * (this.maxLeft + 1))       
+                        if (!(x>l&&x<l+this.pop.outerWidth&&y>t&&y<t+this.pop.outerHeight)) {
+                            this.pop.moveTo(l, t)
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        window.onload = () => { game.init() }
+    </script>
+</body>
+</html>

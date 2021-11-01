@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时自动关闭、跳转页面</title>
+</head>
+<body>
+    <span id="count">10秒钟之后自动关闭</span><br>
+    <a href="javascript:handleTimer()">是否留在本页</a>
+
+    <script>
+        let timer
+        function myClose() {
+            let el = document.querySelector('#count')
+            let time = parseInt(el.innerHTML)
+            time--
+            if(time === 0 ) {
+                close()
+                return
+            }
+            el.innerHTML = `${time}秒钟之后自动关闭`
+        }
+        function handleTimer() {
+            if(timer) {
+                clearInterval(timer)
+                timer = null
+            } else {
+                timer = setInterval(myClose, 1000)
+            }
+        }
+        window.onload = () => {
+            timer = setInterval(myClose, 1000)
+        }
+    </script>
+</body>
+</html>

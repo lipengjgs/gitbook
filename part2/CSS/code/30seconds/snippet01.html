@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nav hover 效果</title>
+  <style>
+    ul, li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul {
+      overflow: hidden;
+    }
+    nav ul li {
+      float: left;
+    }
+    nav ul li a {
+      position: relative;
+      display: block;
+      color: #333;
+      padding: 8px 12px;
+      text-decoration: none;
+    }
+    nav ul li a::before {
+      content: '';
+      position: absolute;
+      border-radius: 5px;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: coral;
+      transform: scale(0);
+      transition: transform .3s ease-in-out;
+    }
+    nav ul li a:hover::before,  nav ul li a:focus::before{
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Mime</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
