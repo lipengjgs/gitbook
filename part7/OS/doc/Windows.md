@@ -6,7 +6,9 @@
 3. [技巧](#技巧)
 4. [问题收集](#问题收集)
 5. [其它命令](#其它命令)
-6. [附录](#附录)
+6. [进入内网](#进入内网)
+7. [查看电脑Serial Number](#查看电脑serial-number)
+8. [附录](#附录)
 
 > 开发最常用的是 Windows 系统
 
@@ -735,12 +737,20 @@ pause
 　　73.?[cmd]：同help.
 ```
 
-## 附录
+## 进入内网
 
+`运行` --> `\\[地址]` --> `输入用户名、密码`
+
+## 查看电脑Serial Number
+
+`wmic/?`
+`wmic bios get serialnumber`
+
+## 附录
 
 1. hosts 中添加 github 相关
 
-```
+```s
 # for github
 185.199.108.154               github.githubassets.com
 140.82.113.22                 central.github.com

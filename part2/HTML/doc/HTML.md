@@ -26,7 +26,7 @@
 > HTML(Hypertext Markup Language)超文本标记语言；表示**网页信息**的符号标记语言
 
 - 定义了web内容的结构
-- 文件以`.html`或`.htm` || `.xhtml` 作为后缀; 
+- 文件以`.html`或`.htm` || `.xhtml` 作为后缀;
 - 特点
     可以设置文本的格式，比如标题、字号、文本颜色、段落等等
     可以创建列表
@@ -120,9 +120,9 @@
 
     > 所有元素都具备的属性，称之为标准属性或通用属性；
 
-    1. id; 
-    2. title; 
-    3. class; 
+    1. id;
+    2. title;
+    3. class;
     4. style
 
 - 注释
@@ -188,17 +188,16 @@
 <meta>内容</meta>
 <!-- 页面的元信息（meta-information） -->
 <!-- 提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。 -->
-<!-- - 必须的属性 content
-            - 值：some_text
-            - 定义与 http-equiv 或 name 属性相关的元信息
-    - 常见的属性
-        - 1.常用的name属性
-            - 1.author
-            - 2.keywords
-            - 3.description
-            - 6.others
-    - 注意meta标记必须放在head元素里面 -->
-
+<!-- 必须的属性 content
+            值：some_text
+            定义与 http-equiv 或 name 属性相关的元信息
+     常见的属性
+            1.常用的name属性
+              1.author
+              2.keywords
+              3.description
+              6.others
+     注意meta标记必须放在head元素里面 -->
 
 
 <!-- 以下是具体例子： -->

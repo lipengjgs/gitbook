@@ -129,3 +129,5 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1
 刷新： 
 mysql> FLUSH PRIVILEGES;
 ```
+
+数据库中表里超过一定的量后就要考虑分库分表了
